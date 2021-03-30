@@ -33,6 +33,7 @@ namespace Tree
             this.listView1 = new System.Windows.Forms.ListView();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +71,15 @@ namespace Tree
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(1004, 23);
             this.textBox1.TabIndex = 1;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(147, 22);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(629, 277);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
