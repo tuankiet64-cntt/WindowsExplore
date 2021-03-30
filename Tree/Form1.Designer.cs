@@ -54,8 +54,7 @@ namespace Tree
             this.listView1.Size = new System.Drawing.Size(638, 292);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
-            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
+            this.listView1.Click += new System.EventHandler(this.listView1_Click);
             // 
             // treeView1
             // 
@@ -63,9 +62,7 @@ namespace Tree
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(360, 292);
             this.treeView1.TabIndex = 0;
-            this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
             // textBox1
             // 

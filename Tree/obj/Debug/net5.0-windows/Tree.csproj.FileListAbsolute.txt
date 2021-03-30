@@ -16,3 +16,4 @@ D:\Tree\Tree\Tree\obj\Debug\net5.0-windows\Tree.dll
 D:\Tree\Tree\Tree\obj\Debug\net5.0-windows\ref\Tree.dll
 D:\Tree\Tree\Tree\obj\Debug\net5.0-windows\Tree.pdb
 D:\Tree\Tree\Tree\obj\Debug\net5.0-windows\Tree.genruntimeconfig.cache
+D:\Tree\Tree\Tree\obj\Debug\net5.0-windows\Tree.Form2.resources

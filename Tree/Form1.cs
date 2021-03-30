@@ -37,34 +37,15 @@ namespace Tree
             TreeNode Disc = new TreeNode("Ổ Đĩa: ", array);
             treeView1.Nodes.Add(Disc);
         }
-
-    
-
-        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            
-        }
-
-        private void treeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
-        {
-            string text = e.Node.Text;
-            if (text != "Ổ Đĩa: ")
-            {
-                
-            }
-
-        }
-
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             string text = e.Node.Text;
             if (text != "Ổ Đĩa: ")
             {
                 listView1.Clear();
-                Debug.WriteLine(text);
+
                 TreeNode parent = treeView1.SelectedNode;
                 string currentPath = parent.FullPath.Substring(8) + "\\";
-                Debug.WriteLine(currentPath);
                 var directories = Directory.GetDirectories(currentPath);
                 parent.Nodes.Clear();
                 foreach (string directorie in directories)
@@ -76,14 +57,15 @@ namespace Tree
                 {
                     listView1.Items.Add(new DirectoryInfo(directorie).Name);
                 }
+                var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
+                var files = GetFilesFrom(currentPath, filters, false);
+                for (int x = 0; x < files.Length; x++)
+                {
+                    listView1.Items.Add(new FileInfo(files[x]).Name);
+                }
                 textBox1.Text = (currentPath);
                 this.current = null;
             }
-        }
-
-        private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-            
         }
         public static String[] GetFilesFrom(String searchFolder, String[] filters, bool isRecursive)
         {
@@ -95,21 +77,23 @@ namespace Tree
             }
             return filesFound.ToArray();
         }
-        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+   
+
+        private void listView1_Click(object sender, EventArgs e)
         {
-            listView1.Clear();
             TreeNode parent = treeView1.SelectedNode;
             if (this.current == null)
             {
-                this.current = e.Item.Text;
+                this.current = listView1.SelectedItems[0].Text;
             }
             else
             {
-                this.current = this.current +"\\"+ e.Item.Text;
+                this.current = this.current + "\\" + listView1.SelectedItems[0].Text;
             }
             string currentPath = parent.FullPath.Substring(8) + "\\" + this.current;
-            if (Directory.Exists(currentPath))
+            if (Directory.Exists(currentPath) && File.Exists(currentPath) == false)
             {
+                listView1.Clear();
                 var directories = Directory.GetDirectories(currentPath);
                 var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
                 var files = GetFilesFrom(currentPath, filters, false);
@@ -122,13 +106,16 @@ namespace Tree
                 {
                     listView1.Items.Add(new FileInfo(files[x]).Name);
                 }
+               
             }
             else
             {
-                MessageBox.Show("Its a file");
+                String filename = listView1.SelectedItems[0].Text;
+                Form2 child = new Form2(currentPath);
+                child.ShowDialog();
+                this.current = this.current.Replace(filename, "");
+             
             }
-     
-           
         }
     }
 }
