@@ -24,8 +24,8 @@ namespace Tree
         private void Form1_Load(object sender, EventArgs e)
         {
             string[] drives = Directory.GetLogicalDrives();
-         
-
+            listView1.View = View.Details;
+            listView1.Columns.Add("Name", -2);
             TreeNode[] array = new TreeNode[2];
             int i = 0;
             foreach (string drive in drives)
@@ -42,7 +42,7 @@ namespace Tree
             string text = e.Node.Text;
             if (text != "Ổ Đĩa: ")
             {
-                listView1.Clear();
+                listView1.Items.Clear();
 
                 TreeNode parent = treeView1.SelectedNode;
                 string currentPath = parent.FullPath.Substring(8) + "\\";
@@ -53,15 +53,16 @@ namespace Tree
                     parent.Nodes.Add(new DirectoryInfo(directorie).Name);
                   
                 }
-                foreach (string directorie in directories)
+                for (int y = 0; y < directories.Length; y++)
                 {
-                    listView1.Items.Add(new DirectoryInfo(directorie).Name);
+                   
+                    listView1.Items.Add(new DirectoryInfo(directories[y]).Name.ToString());
                 }
                 var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
                 var files = GetFilesFrom(currentPath, filters, false);
                 for (int x = 0; x < files.Length; x++)
                 {
-                    listView1.Items.Add(new FileInfo(files[x]).Name);
+                    listView1.Items.Add(new FileInfo(files[x]).Name.ToString());
                 }
                 textBox1.Text = (currentPath);
                 this.current = null;
@@ -93,14 +94,14 @@ namespace Tree
             string currentPath = parent.FullPath.Substring(8) + "\\" + this.current;
             if (Directory.Exists(currentPath) && File.Exists(currentPath) == false)
             {
-                listView1.Clear();
+                listView1.Items.Clear();
                 var directories = Directory.GetDirectories(currentPath);
                 var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
                 var files = GetFilesFrom(currentPath, filters, false);
                 //string[] files = Directory.GetFiles(textBox1.Text);
-                foreach (string directorie in directories)
+                for (int y = 0; y < directories.Length; y++)
                 {
-                    listView1.Items.Add(new DirectoryInfo(directorie).Name);
+                    listView1.Items.Add(new DirectoryInfo(directories[y]).Name);
                 }
                 for (int x = 0; x < files.Length; x++)
                 {
