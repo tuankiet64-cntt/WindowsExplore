@@ -30,7 +30,7 @@ namespace Tree
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.treeView2 = new System.Windows.Forms.TreeView();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -38,42 +38,47 @@ namespace Tree
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.treeView2);
+            this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.treeView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 104);
+            this.groupBox1.Location = new System.Drawing.Point(12, 122);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(787, 334);
+            this.groupBox1.Size = new System.Drawing.Size(1032, 328);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // treeView2
+            // listView1
             // 
-            this.treeView2.Location = new System.Drawing.Point(147, 22);
-            this.treeView2.Name = "treeView2";
-            this.treeView2.Size = new System.Drawing.Size(629, 277);
-            this.treeView2.TabIndex = 1;
-            this.treeView2.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView2_AfterSelect);
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(386, 16);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(638, 292);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(0, 22);
+            this.treeView1.Location = new System.Drawing.Point(20, 16);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(141, 277);
+            this.treeView1.Size = new System.Drawing.Size(360, 292);
             this.treeView1.TabIndex = 0;
+            this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 93);
+            this.textBox1.Location = new System.Drawing.Point(32, 93);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(776, 23);
+            this.textBox1.Size = new System.Drawing.Size(1004, 23);
             this.textBox1.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1048, 450);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -88,9 +93,9 @@ namespace Tree
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TreeView treeView2;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

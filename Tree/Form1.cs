@@ -38,46 +38,97 @@ namespace Tree
             treeView1.Nodes.Add(Disc);
         }
 
-        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+    
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            string text = e.Node.Text;
-            treeView2.Nodes.Clear();
-            string path = driver + text + "\\";
-            if (current != null)
-            {
-                path = current + text+"\\";
-            }
-            if (Directory.Exists(path))
-            {
-                var directories = Directory.GetDirectories(path);
-                foreach (string directorie in directories)
-                {
-                    var dir = new DirectoryInfo(directorie);
-                    var dirName = dir.Name;
-                    treeView2.Nodes.Add(new TreeNode(dirName));
-                }
-                current = path;
-                textBox1.Text = path;
-            }
             
         }
 
-        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void treeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
             string text = e.Node.Text;
             if (text != "Ổ Đĩa: ")
             {
-                treeView2.Nodes.Clear();
-                driver = null;
-                current = null;
-                driver = text + "\\";
-                var directories = Directory.GetDirectories(text + "\\");
+                
+            }
+
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            string text = e.Node.Text;
+            if (text != "Ổ Đĩa: ")
+            {
+                listView1.Clear();
+                Debug.WriteLine(text);
+                TreeNode parent = treeView1.SelectedNode;
+                string currentPath = parent.FullPath.Substring(8) + "\\";
+                Debug.WriteLine(currentPath);
+                var directories = Directory.GetDirectories(currentPath);
+                parent.Nodes.Clear();
                 foreach (string directorie in directories)
                 {
-                    treeView2.Nodes.Add(new TreeNode(directorie.Substring(3)));
+                    parent.Nodes.Add(new DirectoryInfo(directorie).Name);
+                  
                 }
-                textBox1.Text = (text + "\\");
+                foreach (string directorie in directories)
+                {
+                    listView1.Items.Add(new DirectoryInfo(directorie).Name);
+                }
+                textBox1.Text = (currentPath);
+                this.current = null;
             }
+        }
+
+        private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            
+        }
+        public static String[] GetFilesFrom(String searchFolder, String[] filters, bool isRecursive)
+        {
+            List<String> filesFound = new List<String>();
+            var searchOption = isRecursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
+            foreach (var filter in filters)
+            {
+                filesFound.AddRange(Directory.GetFiles(searchFolder, String.Format("*.{0}", filter), searchOption));
+            }
+            return filesFound.ToArray();
+        }
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            listView1.Clear();
+            TreeNode parent = treeView1.SelectedNode;
+            if (this.current == null)
+            {
+                this.current = e.Item.Text;
+            }
+            else
+            {
+                this.current = this.current +"\\"+ e.Item.Text;
+            }
+            string currentPath = parent.FullPath.Substring(8) + "\\" + this.current;
+            if (Directory.Exists(currentPath))
+            {
+                var directories = Directory.GetDirectories(currentPath);
+                var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
+                var files = GetFilesFrom(currentPath, filters, false);
+                //string[] files = Directory.GetFiles(textBox1.Text);
+                foreach (string directorie in directories)
+                {
+                    listView1.Items.Add(new DirectoryInfo(directorie).Name);
+                }
+                for (int x = 0; x < files.Length; x++)
+                {
+                    listView1.Items.Add(new FileInfo(files[x]).Name);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Its a file");
+            }
+     
+           
         }
     }
 }
