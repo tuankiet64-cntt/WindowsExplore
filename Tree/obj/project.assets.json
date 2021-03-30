@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Tree\\Tree\\Tree\\Tree.csproj",
+      "projectUniqueName": "D:\\clone\\Tree\\Tree.csproj",
       "projectName": "Tree",
-      "projectPath": "D:\\Tree\\Tree\\Tree\\Tree.csproj",
+      "projectPath": "D:\\clone\\Tree\\Tree.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Tree\\Tree\\Tree\\obj\\",
+      "outputPath": "D:\\clone\\Tree\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
