@@ -34,7 +34,7 @@ namespace Tree
                 array[i]= new TreeNode(disc);
                 i++;
             }
-            TreeNode Disc = new TreeNode("My Computer", array);
+            TreeNode Disc = new TreeNode("Ổ Đĩa: ", array);
             treeView1.Nodes.Add(Disc);
         }
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)

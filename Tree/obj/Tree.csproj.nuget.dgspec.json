@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\clone\\Tree\\Tree.csproj": {}
+    "D:\\Tree\\Tree\\Tree\\Tree.csproj": {}
   },
   "projects": {
-    "D:\\clone\\Tree\\Tree.csproj": {
+    "D:\\Tree\\Tree\\Tree\\Tree.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\clone\\Tree\\Tree.csproj",
+        "projectUniqueName": "D:\\Tree\\Tree\\Tree\\Tree.csproj",
         "projectName": "Tree",
-        "projectPath": "D:\\clone\\Tree\\Tree.csproj",
+        "projectPath": "D:\\Tree\\Tree\\Tree\\Tree.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\clone\\Tree\\obj\\",
+        "outputPath": "D:\\Tree\\Tree\\Tree\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
