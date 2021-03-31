@@ -53,6 +53,8 @@ namespace Tree
                     parent.Nodes.Add(new DirectoryInfo(directorie).Name);
                   
                 }
+                parent.Expand();
+
                 for (int y = 0; y < directories.Length; y++)
                 {
                    
