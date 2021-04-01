@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Tree\\Tree\\Tree\\Tree.csproj": {}
+    "D:\\WindowsExplore\\Tree\\Tree.csproj": {}
   },
   "projects": {
-    "D:\\Tree\\Tree\\Tree\\Tree.csproj": {
+    "D:\\WindowsExplore\\Tree\\Tree.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tree\\Tree\\Tree\\Tree.csproj",
+        "projectUniqueName": "D:\\WindowsExplore\\Tree\\Tree.csproj",
         "projectName": "Tree",
-        "projectPath": "D:\\Tree\\Tree\\Tree\\Tree.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Tree\\Tree\\Tree\\obj\\",
+        "projectPath": "D:\\WindowsExplore\\Tree\\Tree.csproj",
+        "packagesPath": "C:\\Users\\Kiet-PC\\.nuget\\packages\\",
+        "outputPath": "D:\\WindowsExplore\\Tree\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kiet-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
