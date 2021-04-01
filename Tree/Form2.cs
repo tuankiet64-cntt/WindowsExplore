@@ -15,8 +15,9 @@ namespace Tree
         public Form2(string path)
         {
             InitializeComponent();
+          
             pictureBox1.Image = Image.FromFile(path);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }

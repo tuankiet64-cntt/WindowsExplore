@@ -115,6 +115,7 @@ namespace Tree
             {
                 String filename = listView1.SelectedItems[0].Text;
                 Form2 child = new Form2(currentPath);
+                child.Text = filename;
                 child.ShowDialog();
                 this.current = this.current.Replace(filename, "");
              
